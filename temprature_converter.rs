@@ -15,8 +15,8 @@ fn main() {
     let unit = unit_str.trim().chars().next().unwrap().to_uppercase().next().unwrap();
 
     let converted_temp = match unit {
-        'C' => celsius_to_fahrenheit(temperature),
-        'F' => fahrenheit_to_celsius(temperature),
+        'C' => c_to_f(temperature),
+        'F' => f_to_c(temperature),
         _ => panic!("Invalid unit. Please enter 'C' or 'F'."),
     };
 
@@ -24,10 +24,10 @@ fn main() {
     println!("Converted temperature: {:.2}°{}", converted_temp, new_unit);
 }
 
-fn celsius_to_fahrenheit(celsius: f64) -> f64 {
+fn c_to_f(celsius: f64) -> f64 {
     (celsius * 9.0 / 5.0) + 32.0
 }
 
-fn fahrenheit_to_celsius(fahrenheit: f64) -> f64 {
+fn f_to_c(fahrenheit: f64) -> f64 {
     (fahrenheit - 32.0) * 5.0 / 9.0
 }
